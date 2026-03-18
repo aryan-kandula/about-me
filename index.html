@@ -177,7 +177,8 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
   </section>
 
   <!-- SKILLS -->
-  <div class="sec-heading" id="skills">Skills</div>
+  <div id="skills" style="scroll-margin-top:72px;"></div>
+  <div class="sec-heading">Skills</div>
   <div class="grid-2">
 
     <div class="glass card">
@@ -209,7 +210,8 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
   </div>
 
   <!-- PROJECTS -->
-  <div class="sec-heading" id="projects">Projects</div>
+  <div id="projects" style="scroll-margin-top:72px;"></div>
+  <div class="sec-heading">Projects</div>
   <div class="grid-2">
 
     <div class="glass proj-card">
@@ -339,7 +341,8 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
   </div>
 
   <!-- EDUCATION -->
-  <div class="sec-heading" id="education">Education</div>
+  <div id="education" class="sec-anchor" style="scroll-margin-top:72px;"></div>
+  <div class="sec-heading">Education</div>
   <div class="grid-2">
 
     <div class="glass card">
@@ -394,11 +397,31 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;el.style.transform=`scaleX(${el.dataset.w})`;}}); },{threshold:.3});
 document.querySelectorAll('.skill-fill').forEach(f=>obs.observe(f));
 
-// Nav active
+// Nav click — smooth scroll with offset for fixed nav
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      const top=target.getBoundingClientRect().top+window.scrollY-80;
+      window.scrollTo({top,behavior:'smooth'});
+    }
+  });
+});
+
+// Nav active highlight — check which section is currently in view on scroll
 const navLinks=document.querySelectorAll('.nav a');
-document.querySelectorAll('#about,#skills,#projects,#education').forEach(s=>
-  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{threshold:.4}).observe(s)
-);
+const anchorIds=['about','skills','projects','education'];
+function updateNav(){
+  let current='about';
+  anchorIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && el.getBoundingClientRect().top <= 90) current=id;
+  });
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
 
 // 3D tilt on project cards
 document.querySelectorAll('.proj-card').forEach(c=>{
