@@ -78,11 +78,14 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
 .card-body{font-size:.87rem;color:#7a96ae;line-height:1.72;}
 
 /* SKILLS */
-.skill-list{display:flex;flex-direction:column;gap:9px;}
+.skill-list{display:flex;flex-direction:column;gap:11px;}
 .skill-row{display:flex;align-items:center;gap:10px;}
 .skill-name{font-family:var(--mono);font-size:12px;color:var(--white);width:108px;flex-shrink:0;}
 .skill-track{flex:1;height:3.5px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden;}
 .skill-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal-dim),var(--teal));transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.22,1,.36,1);}
+/* Muted bar for learning-stage skills */
+.skill-fill.learning{background:linear-gradient(90deg,#2a4a5e,#3d6e82);}
+.skill-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:4px;white-space:nowrap;}
 
 /* PROJECT CARD */
 .proj-card{padding:24px 26px;cursor:none;transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s ease;animation:fadeUp .7s ease both;}
@@ -149,16 +152,14 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
     <p class="hero-role">Junior Software Developer &nbsp;·&nbsp; Computer Science Student</p>
     <p class="hero-summary">
       Driven by curiosity and a passion for clean, purposeful code — crafting web tools,
-      database solutions, and Linux-based applications from the ground up. Fluent across
-      Python, Java, C, SQL, HTML, and JavaScript, with a sharp focus on integrating
-      AI-assisted workflows to build smarter and ship faster.
+      database solutions, and desktop applications from the ground up. Strong foundation in
+      Python and Java through advanced coursework, with growing exposure to SQL and HTML,
+      and a sharp focus on integrating AI-assisted workflows to build smarter and ship faster.
     </p>
     <div class="hero-tags">
       <span class="tag">Python</span>
       <span class="tag">Java</span>
-      <span class="tag">C</span>
       <span class="tag">SQL</span>
-      <span class="tag">JavaScript</span>
       <span class="tag">HTML5</span>
       <span class="tag">Git / GitHub</span>
       <span class="tag">Linux</span>
@@ -185,12 +186,24 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
       <span class="gold-rule"></span>
       <div class="card-label">Languages</div>
       <div class="skill-list">
-        <div class="skill-row"><span class="skill-name">Python</span><div class="skill-track"><div class="skill-fill" data-w="0.97"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Java</span><div class="skill-track"><div class="skill-fill" data-w="0.84"></div></div></div>
-        <div class="skill-row"><span class="skill-name">C</span><div class="skill-track"><div class="skill-fill" data-w="0.58"></div></div></div>
-        <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-track"><div class="skill-fill" data-w="0.76"></div></div></div>
-        <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-track"><div class="skill-fill" data-w="0.77"></div></div></div>
-        <div class="skill-row"><span class="skill-name">HTML5</span><div class="skill-track"><div class="skill-fill" data-w="0.82"></div></div></div>
+        <div class="skill-row">
+          <span class="skill-name">Python</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.92"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Java</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.84"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">HTML5</span>
+          <div class="skill-track"><div class="skill-fill learning" data-w="0.58"></div></div>
+          <span class="skill-note">rookie</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">SQL</span>
+          <div class="skill-track"><div class="skill-fill learning" data-w="0.38"></div></div>
+          <span class="skill-note">learning</span>
+        </div>
       </div>
     </div>
 
@@ -198,12 +211,26 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
       <span class="gold-rule"></span>
       <div class="card-label">Tools &amp; Systems</div>
       <div class="skill-list">
-        <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-track"><div class="skill-fill" data-w="0.93"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Linux CLI</span><div class="skill-track"><div class="skill-fill" data-w="0.82"></div></div></div>
-        <div class="skill-row"><span class="skill-name">VS Code</span><div class="skill-track"><div class="skill-fill" data-w="0.96"></div></div></div>
-        <div class="skill-row"><span class="skill-name">AI Dev Tools</span><div class="skill-track"><div class="skill-fill" data-w="0.88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">SQL Databases</span><div class="skill-track"><div class="skill-fill" data-w="0.80"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Prompt Eng.</span><div class="skill-track"><div class="skill-fill" data-w="0.82"></div></div></div>
+        <div class="skill-row">
+          <span class="skill-name">Git / GitHub</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.93"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Linux CLI</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.82"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">VS Code</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.96"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">AI Dev Tools</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.88"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Prompt Eng.</span>
+          <div class="skill-track"><div class="skill-fill" data-w="0.82"></div></div>
+        </div>
       </div>
     </div>
 
@@ -215,9 +242,30 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
   <div class="grid-2">
 
     <div class="glass proj-card">
+      <div class="card-label">Desktop Application &nbsp;·&nbsp; Java Swing GUI</div>
+      <div class="card-title">Farm Management System <span class="proj-arrow">→</span></div>
+      <div class="card-sub">Java · Swing · File I/O · OOP · CSV Persistence</div>
+      <p class="card-body">
+        A fully-featured desktop app managing store inventory, animal sales, vet services,
+        and business reporting through a custom-themed animated GUI. Auto-saves to CSV,
+        reloads on startup with zero data loss. Developed iteratively across 10+ commits
+        with input validation, duplicate guards, date enforcement, and report analytics.
+      </p>
+      <div style="margin-top:12px;">
+        <span class="proj-tag">OOP Design</span>
+        <span class="proj-tag">Custom GUI</span>
+        <span class="proj-tag">File I/O</span>
+        <span class="proj-tag">Git Workflow</span>
+      </div>
+      <div style="margin-top:12px;">
+        <a class="glass-btn" href="https://github.com/aryan-kandula/CSC-251" target="_blank" rel="noopener" style="font-size:12px;padding:7px 14px;">⌥ View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="glass proj-card">
       <div class="card-label">Web Application</div>
       <div class="card-title">Task Management Platform <span class="proj-arrow">→</span></div>
-      <div class="card-sub">HTML5 · JavaScript · Python</div>
+      <div class="card-sub">HTML5 · Python</div>
       <p class="card-body">
         Built to solve a real student pain point — a dynamic platform that pulls course deadlines,
         Canvas links, and assignment data into one clean interface. No more tab-switching, no more missed due dates.
@@ -227,19 +275,8 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
         <span class="proj-tag">Backend</span>
         <span class="proj-tag">Automation</span>
       </div>
-    </div>
-
-    <div class="glass proj-card">
-      <div class="card-label">Software Development</div>
-      <div class="card-title">Programming Applications <span class="proj-arrow">→</span></div>
-      <div class="card-sub">Python · Java · C</div>
-      <p class="card-body">
-        Engineered structured programs across three languages — applying modular design,
-        sharp decision logic, and performance-first thinking. Every project built to last, not just to run.
-      </p>
       <div style="margin-top:12px;">
-        <span class="proj-tag">Multi-language</span>
-        <span class="proj-tag">Algorithms</span>
+        <a class="glass-btn" href="https://aryan-kandula.github.io/TaskManagerPro/TaskManagerPro.html" target="_blank" rel="noopener" style="font-size:12px;padding:7px 14px;">↗ View Live</a>
       </div>
     </div>
 
@@ -269,38 +306,6 @@ body:has(.glass-btn:hover) .cursor-ring{width:54px;height:54px;border-color:rgba
       <div style="margin-top:12px;">
         <span class="proj-tag">Process Mgmt</span>
         <span class="proj-tag">System Admin</span>
-      </div>
-    </div>
-
-    <!-- FARM MANAGEMENT SYSTEM — new card -->
-    <div class="glass proj-card" style="grid-column:1/-1;">
-      <div class="card-label">Desktop Application &nbsp;·&nbsp; Java Swing GUI</div>
-      <div class="card-title">Farm Management System <span class="proj-arrow">→</span></div>
-      <div class="card-sub">Java · Swing · File I/O · OOP · CSV Persistence</div>
-      <p class="card-body">
-        A fully-featured desktop application built from scratch in Java Swing — managing store inventory,
-        animal sales, veterinary services, and business reporting for a small family farm through a
-        custom-themed, animated GUI. Designed every visual element by hand: animated splash screen,
-        gradient buttons with hover transitions, custom table header renderer, and a live status bar
-        with auto-save toggle. Data persists automatically to CSV on exit and reloads on startup with
-        zero data loss. Iteratively improved through 10+ tracked commits — adding input validation,
-        duplicate guards, date format enforcement, and report analytics — practicing real Git workflow throughout.
-      </p>
-      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;">
-        <span class="proj-tag">OOP Design</span>
-        <span class="proj-tag">Custom GUI</span>
-        <span class="proj-tag">File I/O</span>
-        <span class="proj-tag">CSV Persistence</span>
-        <span class="proj-tag">Input Validation</span>
-        <span class="proj-tag">Git Workflow</span>
-        <span class="proj-tag">Animated UI</span>
-      </div>
-      <div class="code-block" style="margin-top:14px;">
-        // Low-stock guard added during iterative development<br/>
-        if (remaining &gt; 0 &amp;&amp; remaining &lt;= 2) {<br/>
-        &nbsp;&nbsp;FarmDialog.message("Low Stock Warning", item.getName()<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;+ " — only " + remaining + " unit(s) left.");<br/>
-        }
       </div>
     </div>
 
@@ -409,7 +414,7 @@ document.querySelectorAll('.nav a').forEach(a=>{
   });
 });
 
-// Nav active highlight — check which section is currently in view on scroll
+// Nav active highlight
 const navLinks=document.querySelectorAll('.nav a');
 const anchorIds=['about','skills','projects','education'];
 function updateNav(){
